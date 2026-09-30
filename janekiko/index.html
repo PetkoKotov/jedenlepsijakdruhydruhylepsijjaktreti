@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Najhoršia reštaurácia v Michalovciach – U Studeného Párku</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background:#1a1a1a; color:#f5f5f5; line-height:1.6; }
+  header { background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), #c0392b; padding:60px 20px; text-align:center; }
+  header .badge { display:inline-block; background:#f1c40f; color:#000; font-weight:bold; padding:6px 16px; border-radius:20px; transform:rotate(-3deg); margin-bottom:15px; }
+  header h1 { font-size:2.8rem; margin-bottom:10px; }
+  header h1 span { color:#f1c40f; }
+  header p { font-size:1.2rem; opacity:.9; max-width:700px; margin:0 auto; }
+  .stars { font-size:1.5rem; letter-spacing:3px; margin:15px 0; color:#555; }
+  .stars b { color:#f1c40f; }
+  nav { background:#111; padding:12px; text-align:center; position:sticky; top:0; z-index:10; }
+  nav a { color:#f1c40f; margin:0 15px; text-decoration:none; font-weight:bold; }
+  nav a:hover { text-decoration:underline; }
+  main { max-width:900px; margin:0 auto; padding:20px; }
+  section { background:#222; border-radius:12px; padding:25px; margin:25px 0; border-left:6px solid #c0392b; }
+  section h2 { margin-bottom:12px; color:#f1c40f; }
+  .menu-item { display:flex; justify-content:space-between; border-bottom:1px dashed #555; padding:10px 0; }
+  .menu-item small { display:block; color:#bbb; }
+  .price { color:#e74c3c; font-weight:bold; white-space:nowrap; margin-left:15px; }
+  .review { background:#2d2d2d; border-radius:8px; padding:15px; margin:12px 0; border:1px solid #444; }
+  .review .name { color:#f1c40f; font-weight:bold; }
+  .review .meta { font-size:.85rem; color:#999; }
+  .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; margin-top:15px; }
+  .food-card { background:#333; border-radius:10px; padding:40px 15px; text-align:center; font-size:3rem; }
+  .food-card p { font-size:.9rem; margin-top:10px; color:#ccc; }
+  .hours-table { width:100%; border-collapse:collapse; margin-top:10px; }
+  .hours-table td { padding:8px; border-bottom:1px solid #444; }
+  .btn { display:inline-block; background:#c0392b; color:#fff; padding:12px 24px; border-radius:8px; text-decoration:none; font-weight:bold; margin-top:15px; }
+  .btn:hover { background:#e74c3c; }
+  .btn-yellow { background:#f1c40f; color:#000; }
+  footer { text-align:center; padding:30px 20px; background:#111; color:#888; font-size:.9rem; }
+  .disclaimer { background:#0f0f0f; border:1px solid #555; font-size:.85rem; color:#aaa; }
+  @media(max-width:600px){ header h1{font-size:1.9rem;} }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#preco">Prečo my?</a>
+  <a href="#menu">Menu hanby</a>
+  <a href="#recenzie">Recenzie</a>
+  <a href="#kontakt">Kontakt</a>
+</nav>
+
+<header>
+  <div class="badge">★ OFICIÁLNE NEOVERENÉ ★ 0,4 / 5 hviezdičiek</div>
+  <h1>Reštaurácia <span>U Studeného Párku</span></h1>
+  <p>Najhoršia reštaurácia v Michalovciach – a sme na to (ne)hrdí. Párok studený, polievka riedka, obsluha vtipnejšia ako jedlo.</p>
+  <div class="stars"><b>★</b>☆☆☆☆ <span style="font-size:1rem;color:#bbb;">– 1 284 nahnevaných recenzií</span></div>
+  <a class="btn btn-yellow" href="#menu">Pozrieť tragické menu</a>
+</header>
+
+<main>
+  <section id="preco">
+    <h2>🍽️ Prečo sme najhorší v Michalovciach?</h2>
+    <p>Od roku 2019 sa snažíme variť. Zatiaľ sa nám to nepodarilo. Naši kuchári majú 20 rokov skúseností... s ohrievaním párkov v mikrovlnke.</p>
+    <ul style="margin:15px 0 0 20px;">
+      <li><b>Čakacia doba 90 minút</b> – aj keď ste jediný hosť</li>
+      <li><b>WiFi nefunguje od 2017</b> – heslo aj tak nevieme</li>
+      <li><b>Denná ponuka:</b> to, čo včera nikto nezjedol</li>
+      <li><b>Kuchár Milan</b> – pľuje výhradne mimo tanier (väčšinou)</li>
+      <li><b>Terasa s výhľadom</b> na parkovisko a kontajnery</li>
+    </ul>
+  </section>
+
+  <section id="menu">
+    <h2>🤢 Menu hanby – Top špeciality</h2>
+    <div class="menu-item">
+      <div><b>Gumový rezeň s horkým zemiakom</b><small>Rezeň starý 3 dni, zemiak ešte starší. Príbor si prineste vlastný.</small></div>
+      <div class="price">8,90 €</div>
+    </div>
+    <div class="menu-item">
+      <div><b>Studený párok vlažný (2 ks)</b><small>Naša vlajková loď. Podávaný s horčicou, ktorá už došla.</small></div>
+      <div class="price">5,50 €</div>
+    </div>
+    <div class="menu-item">
+      <div><b>Voda z vodovodu – perlivá verzia</b><small>Fúkame do nej slamkou pre bublinky. Extra hygiena zdarma.</small></div>
+      <div class="price">3,00 €</div>
+    </div>
+    <div class="menu-item">
+      <div><b>Zabudnutá pizza zo včera</b><small>Niekto si ju neprevzal, tak ju predávame ďalej. Ananás už plesnivie.</small></div>
+      <div class="price">9,90 €</div>
+    </div>
+    <div class="menu-item">
+      <div><b>Dezert prekvapenie</b><small>Ani my nevieme, čo to je. Neodporúčame tehotným a hladným.</small></div>
+      <div class="price">4,20 €</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>📸 Galéria hrôzy</h2>
+    <div class="gallery">
+      <div class="food-card">🌭<p>“Párok, čo prežil 3 majstrovstvá sveta”</p></div>
+      <div class="food-card">🍝<p>“Špagety zlepené ako lego”</p></div>
+      <div class="food-card">🍲<p>“Polievka, v ktorej pláva lyžica aj nádej”</p></div>
+    </div>
+  </section>
+
+  <section id="recenzie">
+    <h2>⭐ Recenzie našich “fanúšikov”</h2>
+    <div class="review">
+      <div class="name">Jožko z Michaloviec ★☆☆☆☆</div>
+      <div class="meta">pred 2 dňami • Google recenzia</div>
+      <p>“Čakal som hodinu na párok. Párok bol studený. Čašník mi povedal, že aspoň nemusím fúkať. Logika má niečo do seba.”</p>
+    </div>
+    <div class="review">
+      <div class="name">Marika ★☆☆☆☆</div>
+      <div class="meta">pred týždňom</div>
+      <p>“Objednala som si šalát. Prišiel rezeň. Keď som sa sťažovala, povedali že šalát došiel tak mi dali to, čo ostalo. Aspoň úprimní.”</p>
+    </div>
+    <div class="review">
+      <div class="name">Ferko – bývalý kuchár ★☆☆☆☆</div>
+      <div class="meta">pred mesiacom</div>
+      <p>“Robol som tam 2 dni. Utekol som. Párok ma dodnes prenasleduje v snoch.”</p>
+    </div>
+    <div class="review">
+      <div class="name">Majiteľ podniku ★★★★★</div>
+      <div class="meta">jediná 5-hviezdičková recenzia</div>
+      <p>“Mne tu chutí. Asi som stratil chuť po covide. Príďte aj vy!”</p>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <h2>📍 Kde nás (ne)hľadajte</h2>
+    <p><b>Adresa:</b> Ulica Skrytá 13, 071 01 Michalovce (pivnica bez okien, vedľa zberného dvora)</p>
+    <table class="hours-table">
+      <tr><td>Po – Pia</td><td>11:00 – 14:00 (ak sa kuchárovi chce)</td></tr>
+      <tr><td>Sobota</td><td>Zatvorené (svadba v rodine, stále)</td></tr>
+      <tr><td>Nedeľa</td><td>Zatvorené (oddychujeme po celom týždni ničnerobenia)</td></tr>
+    </table>
+    <p style="margin-top:12px;">☎️ Tel: 0900 000 666 – nedvíhame, skúste zakričať cez okno</p>
+    <a class="btn" href="mailto:nechodte@studenyparok.sk">Rezervovať stôl (neodporúčame)</a>
+  </section>
+
+  <section class="disclaimer">
+    <h2 style="color:#bbb;">⚠️ Disclaimer</h2>
+    <p>Táto stránka je čistá <b>paródia a vtip</b>. Reštaurácia “U Studeného Párku” je vymyslená a nemá nič spoločné so žiadnym skutočným podnikom v Michalovciach. V Michalovciach je veľa skvelých reštaurácií – táto medzi ne (zámerne) nepatrí. Vytvorené pre zábavu.</p>
+  </section>
+</main>
+
+<footer>
+  © 2026 U Studeného Párku, Michalovce – Najhorší zážitok garantovaný alebo vrátime polovicu úsmevu.<br>
+  Vyrobené s láskou a bez hygienického minima.
+</footer>
+
+</body>
+</html>
