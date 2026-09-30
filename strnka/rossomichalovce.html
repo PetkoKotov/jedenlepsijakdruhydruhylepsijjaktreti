@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROSSO Michalovce — Najlepšia reštika v Michalovciach | Pizza • Pasta • Steak</title>
+<meta name="description" content="Ristorante Rosso Michalovce — najlepšie hodnotená reštaurácia v Michalovciach. Neapolská pizza, čerstvé pasty, steaky. Námestie Osloboditeľov, Michalovce.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--rosso:#c1121f;--dark:#0f0e0c;--cream:#fdf8f0;--gold:#d4a373;--muted:#8a7f72}
+body{font-family:'Segoe UI',Inter,Arial,sans-serif;background:var(--cream);color:var(--dark);line-height:1.6}
+a{text-decoration:none;color:inherit}
+nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(15,14,12,.96);color:#fff;backdrop-filter:blur(8px)}
+.logo{font-weight:900;font-size:22px;letter-spacing:1px}.logo span{color:var(--rosso);background:#fff;padding:0 8px;border-radius:6px;margin-right:6px}
+.nav-links{display:flex;gap:18px;font-size:14px;font-weight:600}.nav-links a:hover{color:var(--gold)}
+.btn{display:inline-block;background:var(--rosso);color:#fff;font-weight:800;border:0;border-radius:999px;padding:12px 26px;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(193,18,31,.4)}
+.btn-ghost{background:transparent;border:2px solid #fff;color:#fff}
+.hero{min-height:86vh;display:grid;grid-template-columns:1.1fr .9fr;background:var(--dark);color:#fff;overflow:hidden}
+.hero-text{padding:60px 40px;display:flex;flex-direction:column;justify-content:center}
+.badge-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.pill{background:#ffffff1a;border:1px solid #ffffff33;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700}
+.pill.gold{background:var(--gold);color:#000;border:0}
+.hero h1{font-size:clamp(38px,5.5vw,64px);line-height:1.05;font-weight:900}.hero h1 em{color:var(--rosso);background:#fff;padding:0 12px;border-radius:10px;font-style:normal;transform:rotate(-2deg);display:inline-block}
+.hero p{color:#d6cec2;margin:18px 0 26px;max-width:520px;font-size:17px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero-img{position:relative;min-height:320px}
+.hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--dark) 0%,transparent 35%,transparent 100%)}
+.hours-card{margin-top:26px;background:#1c1a17;border:1px solid #333;border-radius:14px;padding:14px 18px;display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
+.dot{width:10px;height:10px;background:#22c55e;border-radius:50%;display:inline-block;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{opacity:.4}}
+.wrap{max-width:1100px;margin:0 auto;padding:60px 20px}
+.section-title{text-align:center;margin-bottom:34px}.section-title h2{font-size:34px;font-weight:900}.section-title h2 span{color:var(--rosso)}.section-title p{color:var(--muted)}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.08);border:1px solid #eee}
+.card img{width:100%;height:200px;object-fit:cover}
+.card-body{padding:20px}.card-body h3{margin-bottom:8px}.card-body p{font-size:14px;color:var(--muted)}
+.price{font-weight:900;color:var(--rosso);font-size:20px}
+.menu-tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+.tab{border:2px solid var(--dark);background:transparent;border-radius:999px;padding:10px 22px;font-weight:800;cursor:pointer}
+.tab.active,.tab:hover{background:var(--dark);color:#fff}
+.menu-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.dish{background:#fff;border-radius:14px;padding:16px 18px;display:flex;justify-content:space-between;gap:12px;border:1px solid #eee;transition:.2s}
+.dish:hover{border-color:var(--rosso);transform:translateY(-3px)}
+.dish h4{font-size:17px}.dish small{color:var(--muted);font-size:13px}
+.reviews{background:var(--dark);color:#fff}.review{background:#1c1a17;border:1px solid #333;border-radius:16px;padding:22px}
+.stars{color:#ffb703;letter-spacing:2px;margin-bottom:8px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:26px}@media(max-width:800px){.hero{grid-template-columns:1fr}.hero-img{min-height:300px}.hero-img::after{background:linear-gradient(180deg,transparent,rgba(0,0,0,.2))}.split{grid-template-columns:1fr}nav .nav-links{display:none}}
+form.res{background:#fff;border-radius:18px;padding:26px;border:1px solid #eee;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+label{font-size:13px;font-weight:800;display:block;margin:12px 0 6px}
+input,select,textarea{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid #ddd;font-size:15px;font-family:inherit}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--rosso)}
+footer{background:#0a0908;color:#a99e90;text-align:center;padding:30px 20px;font-size:13px}
+.map{border-radius:18px;overflow:hidden;border:0;width:100%;height:320px;background:#ddd}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:12px 22px;border-radius:999px;font-weight:700;display:none;z-index:50;border:1px solid var(--gold)}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}@media(max-width:700px){.gallery{grid-template-columns:repeat(2,1fr)}}
+.gallery img{width:100%;height:160px;object-fit:cover;border-radius:12px;cursor:pointer;transition:.2s}.gallery img:hover{transform:scale(1.03)}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo"><span>ROSSO</span> MICHALOVCE</div>
+<div class="nav-links"><a href="#o-nas">O nás</a><a href="#menu">Menu</a><a href="#galeria">Galéria</a><a href="#recenzie">Recenzie</a><a href="#kontakt">Kontakt</a></div>
+<a href="#rezervacia" class="btn" style="padding:9px 20px">Rezervovať stôl</a>
+</nav>
+
+<header class="hero">
+<div class="hero-text">
+<div class="badge-row"><span class="pill gold">★ 4.8 / 5 — 1 240+ recenzií</span><span class="pill">🍕 Najlepšia reštika v Michalovciach</span><span class="pill"><span class="dot"></span> Dnes otvorené 11:00–22:00</span></div>
+<h1>Pravá chuť Talianska v srdci <em>Michaloviec</em></h1>
+<p>Inšpirované legendárnym <b>Rossom</b> — neapolská pizza z pece na drevo, domáca pasta, šťavnaté steaky a tiramisu, na ktoré sa stojí v rade. Kúsok od Zemplínskej šíravy.</p>
+<div class="hero-cta">
+<a href="#menu" class="btn">Pozrieť menu 🍝</a>
+<a href="#rezervacia" class="btn btn-ghost">Rezervácia na dnes</a>
+</div>
+<div class="hours-card">
+<div>📍 Nám. Osloboditeľov 10, Michalovce</div>
+<div>📞 <a href="tel:+421566421234"><b>+421 56 642 12 34</b></a></div>
+<div>🛵 Rozvoz do 45 min</div>
+</div>
+</div>
+<div class="hero-img"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200&q=80&auto=format&fit=crop" alt="Neapolská pizza Rosso"></div>
+</header>
+
+<div class="wrap" id="o-nas">
+<div class="section-title"><h2>Prečo je <span>ROSSO</span> #1 v Michalovciach?</h2><p>Talianska rodinná receptúra + zemplínska pohostinnosť</p></div>
+<div class="grid3">
+<div class="card"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=60&auto=format&fit=crop" alt="Pizza pec"><div class="card-body"><h3>🔥 Pec na drevo 450°C</h3><p>Jediná pravá neapolská pec v Michalovciach. Cesto kysne 48 hodín, pizza je hotová za 90 sekúnd.</p></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&q=60&auto=format&fit=crop" alt="Pasta"><div class="card-body"><h3>🍝 Pasta každý deň čerstvá</h3><p>Tagliatelle, gnocchi aj ravioli robíme denne ručne. Paradajky San Marzano DOP, parmazán 24 mes.</p></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=60&auto=format&fit=crop" alt="Steak"><div class="card-body"><h3>🥩 Steaky & burger z lokálneho mäsa</h3><p>Slovenské farmy + talianske korenie. Najpredávanejší: Tagliata Rosso a Double Smash burger.</p></div></div>
+</div>
+</div>
+
+<div class="wrap" id="menu" style="background:#fff;border-radius:24px;box-shadow:0 10px 40px rgba(0,0,0,.06)">
+<div class="section-title"><h2>Naše <span>menu</span></h2><p>Ceny vrátane DPH • Denné menu Po-Pi 7,90 €</p></div>
+<div class="menu-tabs">
+<button class="tab active" data-cat="pizza">🍕 Pizza</button>
+<button class="tab" data-cat="pasta">🍝 Pasta / Rizoto</button>
+<button class="tab" data-cat="steak">🥩 Mäso / Burger</button>
+<button class="tab" data-cat="dezert">🍰 Dezerty / Nápoje</button>
+</div>
+<div class="menu-list" id="menuList"></div>
+<p style="text-align:center;margin-top:18px;color:var(--muted);font-size:14px">+ obedové menu, bezlepková a vegánska verzia každej pizze • Alergény na vyžiadanie u obsluhy</p>
+</div>
+
+<div class="wrap" id="galeria">
+<div class="section-title"><h2>Z pece <span>rovno na stôl</span></h2></div>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=60&auto=format&fit=crop" alt="Pizza">
+<img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600&q=60&auto=format&fit=crop" alt="Pasta">
+<img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=60&auto=format&fit=crop" alt="Interiér">
+<img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=60&auto=format&fit=crop" alt="Dezert">
+</div>
+</div>
+
+<div class="reviews"><div class="wrap" id="recenzie">
+<div class="section-title"><h2 style="color:#fff">Čo hovoria <span style="color:var(--gold)">Michalovčania</span></h2><p style="color:#a99e90">Google • Tripadvisor • Gastromapa</p></div>
+<div class="grid3">
+<div class="review"><div class="stars">★★★★★</div><p>„Najlepšia pizza na východ od Košíc. Cesto ako v Neapole, obsluha top. Tagliata Rosso povinnosť!“</p><br><b>— Janka H., Michalovce</b></div>
+<div class="review"><div class="stars">★★★★★</div><p>„Boli sme po kúpalisku na Šírave. Deti milovali detský kútik, ja carbonaru. Rezervujte v piatok vopred!“</p><br><b>— Peter K., Strážske</b></div>
+<div class="review"><div class="stars">★★★★★</div><p>„Rosso level. Tiramisu najlepšie v okrese, espresso Lavazza. Interiér moderný, terasa v lete super.“</p><br><b>— Dominika S., Humenné</b></div>
+</div>
+</div></div>
+
+<div class="wrap split" id="rezervacia">
+<form class="res" id="resForm">
+<h2>Rezervovať stôl 🍷</h2>
+<p style="color:var(--muted);font-size:14px">Odpovieme do 15 minút v otváracích hodinách. Pre 8+ osôb volajte.</p>
+<label>Meno</label><input id="rName" required placeholder="napr. Jozef Novák">
+<label>Telefón</label><input id="rPhone" required placeholder="+421 9xx xxx xxx">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div><label>Dátum</label><input type="date" id="rDate" required></div>
+<div><label>Čas</label><select id="rTime"><option>12:00</option><option>13:00</option><option>17:00</option><option selected>18:00</option><option>19:00</option><option>20:00</option></select></div>
+</div>
+<label>Počet hostí</label><select id="rGuests"><option>2 osoby</option><option>3 osoby</option><option>4 osoby</option><option>5-6 osôb</option><option>Oslava 7+</option></select>
+<label>Poznámka</label><textarea id="rNote" rows="2" placeholder="detská stolička, terasa, oslava..."></textarea>
+<br><button class="btn" style="width:100%" type="submit">Odoslať rezerváciu</button>
+</form>
+<div id="kontakt">
+<h2>Kontakt & otváracie hodiny</h2><br>
+<div class="card"><div class="card-body">
+<p><b>📍 Ristorante ROSSO Michalovce</b><br>Námestie Osloboditeľov 10<br>071 01 Michalovce</p><br>
+<p>🕒 Po–Št: 11:00–21:00<br>🕒 Pi–So: 11:00–22:30<br>🕒 Ne: 12:00–21:00<br>🍕 Kuchyna do 30 min pred zatváračkou</p><br>
+<p>📞 +421 56 642 12 34<br>✉️ info@rosso-michalovce.sk<br>📸 @rosso.michalovce</p><br>
+<a class="btn" href="tel:+421566421234">Zavolať teraz</a>
+</div></div>
+<br>
+<iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=21.90%2C48.748%2C21.93%2C48.762&layer=mapnik&marker=48.755%2C21.915" loading="lazy"></iframe>
+</div>
+</div>
+
+<footer>Ristorante ROSSO Michalovce • Inšpirované originál Rossom • Vytvorené s ❤️ na Zemplíne • © 2026 • Denné menu nájdete aj na Facebooku</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+const MENU={
+pizza:[
+{t:"Margherita D.O.P.",d:"San Marzano, fior di latte, bazalka, olivový olej",p:"8,90 €"},
+{t:"Diavola Rosso ⭐ TOP",d:"pikantná saláma, nduja, med, stracciatella",p:"12,90 €"},
+{t:"Quattro Formaggi",d:"mozzarella, gorgonzola, parmazán 24m, scamorza",p:"11,90 €"},
+{t:"Prosciutto e Rucola",d:"prosciutto crudo 18m, rukola, cherry, parmazán",p:"13,50 €"},
+{t:"Zemplínska špecial",d:"bryndza, slaninka, cibuľa, smotana — fúzia MI + NA",p:"11,50 €"},
+{t:"Marinara vegán",d:"paradajka, cesnak, oregano, bez syra / vegán syr",p:"8,50 €"}],
+pasta:[
+{t:"Spaghetti Carbonara",d:"guanciale, pecorino, žĺtok, čierne korenie — bez smotany",p:"11,90 €"},
+{t:"Tagliatelle Rosso",d:"hovädzia tagliata, cherry, rukola, parmazán",p:"14,90 €"},
+{t:"Gnocchi Burrata",d:"domáce gnocchi, paradajková salsa, celá burrata",p:"12,50 €"},
+{t:"Risotto Funghi",d:"hríby, parmazán, biele víno, lanýžový olej",p:"12,90 €"}],
+steak:[
+{t:"Tagliata Rosso 300g",d:"roštenka, rukola, cherry, balsamico, rozmarínové zemiaky",p:"19,90 €"},
+{t:"Double Smash Burger",d:"2x 120g, cheddar, slanina, brioche, hranolky",p:"12,90 €"},
+{t:"Kuracie Saltimbocca",d:"kuracie prsia, prosciutto, šalvia, zemiakové pyré",p:"13,90 €"},
+{t:"Losos na masle",d:"filet 180g, grilovaná zelenina, citrónové risotto",p:"16,90 €"}],
+dezert:[
+{t:"Tiramisu Rosso",d:"pravé mascarpone, savoiardi, kakao — recept od nonny",p:"6,50 €"},
+{t:"Panna Cotta lesné ovocie",d:"vanilka, malinové coulis",p:"5,90 €"},
+{t:"Pizza Nutella",d:"nutella, lieskovce, mascarpone — pre dvoch",p:"8,90 €"},
+{t:"Aperol Spritz / Moretti",d:"taliansky aperitív / pivo Birra Moretti 0,33",p:"5,50 €"}]
+};
+const list=document.getElementById('menuList');
+function render(cat){
+list.innerHTML=MENU[cat].map(x=>`<div class="dish"><div><h4>${x.t}</h4><small>${x.d}</small></div><div class="price">${x.p}</div></div>`).join('');
+}
+render('pizza');
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(o=>o.classList.remove('active'));b.classList.add('active');render(b.dataset.cat);});
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',3200);}
+document.getElementById('rDate').min=new Date().toISOString().split('T')[0];
+document.getElementById('resForm').onsubmit=e=>{e.preventDefault();const n=document.getElementById('rName').value;toast('Ďakujeme '+n+'! Stôl čoskoro potvrdíme SMSkou. 🍕');e.target.reset();};
+document.querySelectorAll('.gallery img').forEach(i=>i.onclick=()=>window.open(i.src,'_blank'));
+</script>
+</body>
+</html>
