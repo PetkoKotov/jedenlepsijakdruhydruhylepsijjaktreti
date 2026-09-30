@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Le'pussí - Fine Dining & Cocktail Lounge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0a0b;
+    --black2:#131315;
+    --gold:#d4af37;
+    --gold-light:#f3e5ab;
+    --gold-dark:#8a6d1b;
+    --cream:#f5f0e1;
+    --muted:#a9a49a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--black);color:var(--cream);font-family:'Jost',sans-serif;overflow-x:hidden}
+  h1,h2,h3,.serif{font-family:'Playfair Display',serif}
+  /* gold art-deco pattern bar */
+  .gold-pattern{
+    height:14px;
+    background:
+      repeating-linear-gradient(45deg, var(--gold) 0 2px, transparent 2px 12px),
+      linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold), var(--gold-dark));
+    background-blend-mode: overlay;
+    border-top:1px solid var(--gold);
+    border-bottom:1px solid var(--gold);
+  }
+  a{color:inherit;text-decoration:none}
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:18px 5vw;
+    background:rgba(10,10,11,.85);backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(212,175,55,.35);
+  }
+  .logo{font-family:'Playfair Display',serif;font-size:1.6rem;letter-spacing:4px;color:var(--gold)}
+  .logo span{display:block;font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:6px;color:var(--muted);margin-top:2px}
+  .nav-links{display:flex;gap:32px;font-size:.85rem;letter-spacing:3px;text-transform:uppercase}
+  .nav-links a{position:relative;padding:4px 0}
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);transition:.3s}
+  .nav-links a:hover::after{width:100%}
+  .nav-links a:hover{color:var(--gold-light)}
+  .btn-gold{
+    border:1px solid var(--gold);color:var(--black);background:linear-gradient(135deg,#f3e5ab,#d4af37 40%,#9c7c1e 70%,#f3e5ab);
+    padding:12px 28px;letter-spacing:3px;text-transform:uppercase;font-size:.75rem;font-weight:500;cursor:pointer;transition:.3s;
+  }
+  .btn-gold:hover{filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 8px 30px rgba(212,175,55,.35)}
+  .btn-outline{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+  .btn-outline:hover{background:rgba(212,175,55,.12)}
+  /* HERO */
+  header{
+    min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
+    padding:140px 6vw 80px;position:relative;
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(212,175,55,.18), transparent 60%),
+      linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.82)),
+      url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2000&auto=format&fit=crop');
+    background-size:cover;background-position:center;
+  }
+  header::before,header::after{
+    content:'◇ ◇ ◇';position:absolute;left:50%;transform:translateX(-50%);color:var(--gold);letter-spacing:12px;font-size:.8rem;
+  }
+  header::before{top:110px} header::after{bottom:40px}
+  .hero-frame{border:1px solid rgba(212,175,55,.6);outline:1px solid rgba(212,175,55,.25);outline-offset:10px;padding:60px 50px;max-width:860px;background:rgba(10,10,11,.55);backdrop-filter:blur(4px)}
+  .eyebrow{letter-spacing:6px;text-transform:uppercase;color:var(--gold);font-size:.75rem;margin-bottom:18px}
+  h1.hero-title{font-size:clamp(2.8rem,7vw,5.5rem);line-height:1.05;font-weight:700}
+  h1.hero-title em{font-style:italic;font-weight:400;background:linear-gradient(135deg,#fff8d6,#d4af37,#f3e5ab);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-sub{color:#d6d0be;margin:22px auto;max-width:560px;font-weight:300;line-height:1.7}
+  .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .stars{color:var(--gold);letter-spacing:6px;margin-bottom:12px}
+  /* SECTIONS */
+  section{padding:90px 6vw;max-width:1200px;margin:0 auto}
+  .section-head{text-align:center;margin-bottom:50px}
+  .section-head h2{font-size:clamp(2rem,4vw,3rem);color:var(--gold-light);margin:12px 0}
+  .divider{width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto;position:relative}
+  .divider::after{content:'◆';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--black);padding:0 10px;color:var(--gold);font-size:.7rem}
+  .section-head p{color:var(--muted);font-weight:300;max-width:600px;margin:0 auto;line-height:1.7}
+  /* TABS */
+  .tabs{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+  .tab{border:1px solid rgba(212,175,55,.4);background:transparent;color:var(--cream);padding:10px 24px;letter-spacing:2px;text-transform:uppercase;font-size:.75rem;cursor:pointer;transition:.25s;font-family:'Jost',sans-serif}
+  .tab.active,.tab:hover{background:linear-gradient(135deg,#f3e5ab,#d4af37);color:#111;border-color:var(--gold)}
+  .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 60px}
+  .dish{display:flex;justify-content:space-between;gap:18px;padding:22px 0;border-bottom:1px dotted rgba(212,175,55,.35)}
+  .dish h3{font-size:1.15rem;color:#fff;font-weight:600}
+  .dish h3 span{color:var(--gold);font-size:.8rem;letter-spacing:2px;margin-left:10px;border:1px solid rgba(212,175,55,.5);padding:2px 8px;text-transform:uppercase;font-family:'Jost',sans-serif}
+  .dish p{color:var(--muted);font-size:.92rem;margin-top:6px;font-weight:300;line-height:1.6}
+  .price{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.2rem;white-space:nowrap}
+  /* COCKTAILS */
+  #drinks{background:linear-gradient(180deg,#0a0a0b,#151104 50%,#0a0a0b);border-top:1px solid rgba(212,175,55,.3);border-bottom:1px solid rgba(212,175,55,.3);max-width:none}
+  #drinks .inner{max-width:1200px;margin:0 auto}
+  .cocktail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .card{background:linear-gradient(180deg,#1a1a1c,#0e0e0f);border:1px solid rgba(212,175,55,.35);padding:0;overflow:hidden;transition:.35s;position:relative}
+  .card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 20px 60px rgba(212,175,55,.18)}
+  .card-img{height:230px;background-size:cover;background-position:center;position:relative}
+  .card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.85))}
+  .card-price{position:absolute;top:14px;right:14px;z-index:2;background:linear-gradient(135deg,#f3e5ab,#d4af37);color:#111;font-family:'Playfair Display',serif;padding:6px 14px;font-weight:700}
+  .card-body{padding:24px 24px 28px}
+  .card-body h3{color:var(--gold-light);font-size:1.4rem;margin-bottom:4px}
+  .card-body .ing{color:var(--gold);font-size:.72rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+  .card-body p{color:#c9c3b2;font-weight:300;font-size:.92rem;line-height:1.65}
+  .wine-list{margin-top:50px;display:grid;grid-template-columns:1fr 1fr;gap:0 60px;border:1px solid rgba(212,175,55,.35);padding:10px 40px 30px;background:rgba(212,175,55,.04)}
+  .wine-list h3{grid-column:1/-1;text-align:center;color:var(--gold);letter-spacing:5px;text-transform:uppercase;font-size:.85rem;margin:22px 0 6px;font-family:'Jost',sans-serif}
+  /* RESERVE */
+  .reserve-box{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;border:1px solid rgba(212,175,55,.4);padding:50px;background:radial-gradient(circle at 20% 20%,rgba(212,175,55,.12),transparent 55%),#101012}
+  .reserve-box h2{font-size:2.2rem;color:var(--gold-light);margin:10px 0 14px}
+  form{display:grid;gap:14px}
+  input,select,textarea{background:#0a0a0b;border:1px solid rgba(212,175,55,.4);color:var(--cream);padding:13px 15px;font-family:'Jost',sans-serif;font-size:.95rem;width:100%}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 2px rgba(212,175,55,.2)}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  footer{text-align:center;padding:40px 6vw;color:var(--muted);font-size:.85rem;letter-spacing:1px}
+  footer .logo{margin-bottom:10px}
+  #toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(100px);background:linear-gradient(135deg,#f3e5ab,#d4af37);color:#111;padding:14px 28px;letter-spacing:1px;transition:.4s;z-index:99;font-size:.9rem}
+  #toast.show{transform:translateX(-50%) translateY(0)}
+  @media(max-width:900px){
+    .menu-grid,.wine-list,.reserve-box{grid-template-columns:1fr}
+    .cocktail-grid{grid-template-columns:1fr}
+    .nav-links{display:none}
+    .hero-frame{padding:40px 24px}
+    .reserve-box{padding:30px 22px}
+  }
+</style>
+</head>
+<body>
+
+<div class="gold-pattern"></div>
+<nav>
+  <a href="#top" class="logo">Le'pussí<span>FINE DINING · EST. 1998</span></a>
+  <div class="nav-links">
+    <a href="#menu">Menu</a>
+    <a href="#drinks">Cocktails</a>
+    <a href="#about">Maison</a>
+    <a href="#reserve">Reserve</a>
+  </div>
+  <a href="#reserve" class="btn-gold">Book a Table</a>
+</nav>
+
+<header id="top">
+  <div class="hero-frame">
+    <div class="stars">★ ★ ★ ★ ★</div>
+    <div class="eyebrow">Michelin Star · Black & Gold Experience</div>
+    <h1 class="hero-title">Where Night<br><em>Becomes Flavour</em></h1>
+    <p class="hero-sub">Contemporary French gastronomy, smoked tableside, paired with signature gold-leaf cocktails in the heart of the city.</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-gold">Explore Menu</a>
+      <a href="#drinks" class="btn-gold btn-outline">Cocktail Menu</a>
+    </div>
+  </div>
+</header>
+<div class="gold-pattern"></div>
+
+<section id="about">
+  <div class="section-head">
+    <div class="eyebrow">The Maison</div>
+    <h2>Opulence in Every Detail</h2>
+    <div class="divider"></div>
+    <p>Black marble, brushed brass, low candlelight. Chef Élise Moreau crafts a seven-course tasting journey — every plate finished with edible gold.</p>
+  </div>
+</section>
+
+<section id="menu" style="padding-top:0">
+  <div class="section-head">
+    <div class="eyebrow">La Carte</div>
+    <h2>Dinner Menu</h2>
+    <div class="divider"></div>
+    <p>Seasonal tasting menu · 7 courses 145€ · Wine pairing 85€</p>
+  </div>
+  <div class="tabs" id="menuTabs">
+    <button class="tab active" data-cat="starters">Starters</button>
+    <button class="tab" data-cat="mains">Mains</button>
+    <button class="tab" data-cat="desserts">Desserts</button>
+  </div>
+  <div class="menu-grid" id="menuGrid"></div>
+</section>
+
+<section id="drinks">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">Bar Noir</div>
+      <h2>Signature Gold Cocktails</h2>
+      <div class="divider"></div>
+      <p>All signature cocktails finished with 24k gold mist, smoked oak or black truffle. Zero-proof versions available.</p>
+    </div>
+    <div class="cocktail-grid" id="cocktailGrid"></div>
+    <div class="wine-list" id="wineList"></div>
+  </div>
+</section>
+
+<section id="reserve">
+  <div class="reserve-box">
+    <div>
+      <div class="eyebrow">Reservations</div>
+      <h2>Reserve Your Evening in Gold</h2>
+      <p style="color:var(--muted);font-weight:300;line-height:1.7">Open Tuesday – Sunday · 18:00 – 00:00<br>12 Rue de la Lumière, Paris VIII<br>+33 1 42 68 00 00 · bonsoir@maisonnoir.fr</p>
+      <div class="divider" style="margin:22px 0"></div>
+      <p style="color:var(--gold);letter-spacing:2px;font-size:.8rem">DRESS CODE: EVENING ELEGANT · BLACK & GOLD ENCOURAGED</p>
+    </div>
+    <form id="bookForm">
+      <div class="form-row">
+        <input required placeholder="Full name" id="fName" />
+        <input required type="tel" placeholder="Phone" />
+      </div>
+      <div class="form-row">
+        <input required type="date" id="fDate" />
+        <select id="fTime">
+          <option>18:00</option><option>19:00</option><option selected>20:00</option><option>21:00</option><option>22:00</option>
+        </select>
+      </div>
+      <select><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>6 guests · private salon</option><option>Private event</option></select>
+      <textarea rows="3" placeholder="Allergies, occasions, requests..."></textarea>
+      <button class="btn-gold" type="submit">Confirm Reservation</button>
+    </form>
+  </div>
+</section>
+
+<div class="gold-pattern"></div>
+<footer>
+  <div class="logo">MAISON NOIR</div>
+  © 2026 Maison Noir · Crafted in black & gold · Follow @maisonnoir.paris
+</footer>
+<div id="toast">Merci! Your table request was received. We will confirm shortly.</div>
+
+<script>
+const MENU = {
+  starters: [
+    {name:"Osetra Caviar & Gold Blini", desc:"30g osetra caviar, crème crue, chive, edible gold leaf, warm buckwheat blini.", price:"68€", tag:"Signature"},
+    {name:"Black Truffle Velouté", desc:"Périgord black truffle, celeriac silk, aged comté, truffle oil pearls.", price:"34€"},
+    {name:"Scallops Saint-Jacques", desc:"Hokkaido scallops, champagne beurre blanc, sea herbs, caviar beurre.", price:"42€"},
+    {name:"Foie Gras Noir", desc:"Torchon of foie gras, black cherry, cocoa nib tuile, brioche, 25-yr balsamic.", price:"38€", tag:"Chef's pick"},
+    {name:"Burrata di Puglia", desc:"Creamy burrata, black fig, prosciutto di Parma 24mo, basil oil, gold balsamic.", price:"28€"},
+    {name:"Tuna Tataki Tatou", desc:"Yellowfin tuna, black sesame, ponzu pearls, avocado mousse, shiso.", price:"36€"}
+  ],
+  mains: [
+    {name:"Wagyu A5 Rossini", desc:"A5 Japanese wagyu, seared foie gras, pommes purée, bordelaise with black garlic.", price:"120€", tag:"Signature"},
+    {name:"Lobster Thermidor Noir", desc:"Brittany blue lobster, cognac cream, black rice, bisque glaze, tarragon.", price:"85€"},
+    {name:"Duck à l'Orange d'Or", desc:"Challans duck breast, caramelised orange, Grand Marnier jus, glazed endive.", price:"64€"},
+    {name:"Turbot Sauvage", desc:"Wild turbot, mussel sabayon, sea asparagus, verjus, gold potato pavé.", price:"72€"},
+    {name:"Truffle Risotto Nero", desc:"Carnaroli rice, black truffle, mascarpone, parmesan crisp, chive oil.", price:"48€", tag:"Vegetarian"},
+    {name:"Pigeon Royal", desc:"Royal pigeon, beetroot, blackberry jus, pistachio, smoked jus gras.", price:"58€"}
+  ],
+  desserts: [
+    {name:"Sphère d'Or", desc:"Valrhona 70% chocolate sphere, salted caramel heart, gold leaf, tableside pour.", price:"26€", tag:"Signature"},
+    {name:"Crème Brûlée Vanille Noire", desc:"Tahitian vanilla bean, torched gold sugar crust, almond tuile.", price:"18€"},
+    {name:"Soufflé au Chocolat", desc:"Grand cru soufflé, gold-dusted cocoa, Tahitian vanilla ice cream.", price:"22€"},
+    {name:"Tarte Tatin Moderne", desc:"Caramelised heirloom apple, puff pastry, calvados cream, cider caramel.", price:"19€"},
+    {name:"Millefeuille Pistache", desc:"Sicilian pistachio crème, raspberry, rose, gold meringue shards.", price:"21€"},
+    {name:"Artisanal Cheese Trolley", desc:"12 farmhouse cheeses, black walnut bread, fig chutney, truffle honey.", price:"32€"}
+  ]
+};
+const COCKTAILS = [
+  {name:"Noir Old Fashioned", ing:"Barrel bourbon · black walnut · gold mist", desc:"Smoked oak, demerara, black walnut bitters, orange oils, 24k gold mist.", price:"24€", img:"https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=800&auto=format&fit=crop"},
+  {name:"Golden Versailles", ing:"Champagne · elderflower · gold leaf", desc:"Vintage champagne, St-Germain, lemon pearl, floating gold leaf, served in crystal coupe.", price:"28€", img:"https://images.unsplash.com/photo-1541544181051-e46607bc22a4?q=80&w=800&auto=format&fit=crop"},
+  {name:"Black Truffle Martini", ing:"Truffle vodka · dry vermouth · olive", desc:"House truffle-infused vodka, Noilly Prat, black olive brine, truffle salt rim.", price:"26€", img:"https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=800&auto=format&fit=crop"},
+  {name:"Minuit Espresso", ing:"Vodka · grand espresso · cacao d'or", desc:"Double ristretto, vanilla vodka, cacao, gold-dusted crema, black cocoa rim.", price:"22€", img:"https://images.unsplash.com/photo-1546171753-97d7676e4602?q=80&w=800&auto=format&fit=crop"},
+  {name:"Fumée d'Or", ing:"Mezcal · honey · saffron smoke", desc:"Mezcal joven, saffron honey, lime, chili-gold salt, applewood smoke cloche.", price:"25€", img:"https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=800&auto=format&fit=crop"},
+  {name:"Impératrice 75", ing:"Empress gin · lavender · lemon noir", desc:"Butterfly-pea gin that turns violet-gold, lavender syrup, lemon, champagne top.", price:"23€", img:"https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=800&auto=format&fit=crop"}
+];
+const WINES = [
+  {name:"Champagne Krug Grande Cuvée", desc:"Reims, France — brioche, citrus, endless finish", price:"85€ / 420€"},
+  {name:"Meursault 1er Cru 2019", desc:"Burgundy — hazelnut, white flowers, mineral", price:"48€ / 220€"},
+  {name:"Château Margaux 2016", desc:"Bordeaux — cassis, violet, velvet tannins", price:"120€ / 850€"},
+  {name:"Barolo Riserva 2017", desc:"Piedmont — rose, tar, black cherry", price:"38€ / 180€"},
+  {name:"Sancerre Blanc 2022", desc:"Loire — flint, grapefruit, crisp", price:"22€ / 95€"},
+  {name:"Sauternes d'Yquem 2018", desc:"Dessert — apricot, honey, gold", price:"55€ / 320€"}
+];
+const grid = document.getElementById('menuGrid');
+function renderMenu(cat){
+  grid.innerHTML = MENU[cat].map(d=>`
+    <div class="dish">
+      <div><h3>${d.name}${d.tag?`<span>${d.tag}</span>`:''}</h3><p>${d.desc}</p></div>
+      <div class="price">${d.price}</div>
+    </div>`).join('');
+}
+renderMenu('starters');
+document.getElementById('menuTabs').addEventListener('click',e=>{
+  if(e.target.classList.contains('tab')){
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    e.target.classList.add('active');
+    renderMenu(e.target.dataset.cat);
+  }
+});
+document.getElementById('cocktailGrid').innerHTML = COCKTAILS.map(c=>`
+  <div class="card">
+    <div class="card-img" style="background-image:url('${c.img}')"><div class="card-price">${c.price}</div></div>
+    <div class="card-body"><h3>${c.name}</h3><div class="ing">${c.ing}</div><p>${c.desc}</p></div>
+  </div>`).join('');
+document.getElementById('wineList').innerHTML = `<h3>— Grand Vins & Champagnes —</h3>` + WINES.map(w=>`
+  <div class="dish"><div><h3>${w.name}</h3><p>${w.desc}</p></div><div class="price" style="font-size:1rem">${w.price}</div></div>`).join('');
+document.getElementById('bookForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const t=document.getElementById('toast');t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3500);e.target.reset();
+});
+document.getElementById('fDate').min = new Date().toISOString().split('T')[0];
+</script>
+</body>
+</html>
